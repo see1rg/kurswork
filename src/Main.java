@@ -21,56 +21,60 @@ public class Main {
 
         System.out.println("Список сотрудников : ");
         for (int i = 0; i < employees.length; i++) {
-            System.out.println(employees[i].getFio());
+            if (employees[i] != null) {
+                System.out.println(employees[i].toString());
+            }
         }
 
 
-        double sumDepartmentEconomic = sumDepartmentEconomic();
-        System.out.println("Сумму затрат на зарплату по отделу \"Экономика\": " + sumDepartmentEconomic);
+        System.out.println("Сумму затрат на зарплату по отделу \"Экономика\": " + sumDepartmentEconomic());
 
         System.out.println("Среднее значение зарплат по отделу \"Экономика\":" + averageDepartmentEconomic());
 
-        double sumDepartmentScientific = sumDepartmentScientific();
-        System.out.println("Сумму затрат на зарплату по отделу \"Наука\": " + sumDepartmentScientific);
+        System.out.println("Сумму затрат на зарплату по отделу \"Наука\": " + sumDepartmentScientific());
 
         System.out.println("Среднее значение зарплат по отделу \"Наука\":" + averageDepartmentScientific());
 
-        double sum = sumEmployee();
-        System.out.println("Сумма затрат на зарплаты:" + sum);
+        System.out.println("Сумма затрат на зарплаты:" + salaryCalculate());
 
-        double average = sum / employees.length + 1;
+        int amountOfEmployees = 0;
+        for (int i = 0; i < employees.length; i++) {
+            if(employees[i] != null){
+                amountOfEmployees++;
+            }
+
+        }
+        double average = salaryCalculate() / amountOfEmployees;
         System.out.println("Среднее значение зарплат:" + (float) average);
 
 
-        int numberOfEmployeeMin = minSalary();
-        System.out.println("Минимальная зарплата: " + employees[numberOfEmployeeMin].getSalary() +
-                " у сотрудника - " + employees[numberOfEmployeeMin].getFio() + ".");
+        System.out.println("Минимальная зарплата: " + employees[numberOfEmployeeMin()].getSalary() +
+                " у сотрудника - " + employees[numberOfEmployeeMin()].getFio() + ".");
 
 
-        int numberOfEmployeeMax = maxSalary();
-        System.out.println("Максимальная зарплата: " + employees[numberOfEmployeeMax].getSalary() +
-                " у сотрудника - " + employees[numberOfEmployeeMax].getFio() + ".");
+        System.out.println("Максимальная зарплата: " + employees[numberOfEmployeeMax()].getSalary() +
+                " у сотрудника - " + employees[numberOfEmployeeMax()].getFio() + ".");
     }
 
 
-    public static int minSalary() {
+    public static int numberOfEmployeeMin() {
         double min = employees[0].getSalary();
         int numberOfEmployeeMin = 0;
         for (int i = 0; i < employees.length; i++) {
-            if (employees[i].getSalary() < min) {
-                min = employees[i].getSalary(); // check it!
+            if ((employees[i].getSalary() < min) && (employees[i] != null)) {
+                min = employees[i].getSalary();
                 numberOfEmployeeMin = i;
             }
         }
         return numberOfEmployeeMin;
     }
 
-    public static int maxSalary() {
+    public static int numberOfEmployeeMax() {
         double max = employees[0].getSalary();
         int numberOfEmployeeMax = 0;
         for (int i = 0; i < employees.length; i++) {
-            if (employees[i].getSalary() > max) {
-                max = employees[i].getSalary(); // check it!
+            if ((employees[i].getSalary() > max) && (employees[i] != null)) {
+                max = employees[i].getSalary();
                 numberOfEmployeeMax = i;
             }
         }
@@ -78,7 +82,7 @@ public class Main {
     }
 
 
-    public static double sumEmployee() {
+    public static double salaryCalculate() {
         double sum = 0;
         for (Employee employee : employees) {
             sum += employee.getSalary();
@@ -97,12 +101,23 @@ public class Main {
         return sumDepartmentEconomic;
     }
 
+    public static double sumDepartmentScientific() {
+        double sumDepartmentScientific = 0;
+        String depart = "scientific";
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i].getDepartment().equals(depart)) {
+                sumDepartmentScientific += employees[i].getSalary();
+            }
+        }
+        return sumDepartmentScientific;
+    }
+
     public static double averageDepartmentScientific() {
         double employeeDepartmentScientific = 0;
         double sumDepartmentScientific = 0;
         String depart = "scientific";
         for (int i = 0; i < employees.length; i++) {
-            if (employees[i].getDepartment().equals(depart)) {
+            if ((employees[i].getDepartment().equals(depart)) && (employees[i] != null)) {
                 sumDepartmentScientific += employees[i].getSalary();
                 employeeDepartmentScientific++;
             }
@@ -113,25 +128,14 @@ public class Main {
     public static double averageDepartmentEconomic() {
         double employeeDepartmentEconomic = 0;
         double sumDepartmentEconomic = 0;
-        String depart = "scientific";
+        String depart = "economic";
         for (int i = 0; i < employees.length; i++) {
-            if (employees[i].getDepartment().equals(depart)) {
+            if ((employees[i].getDepartment().equals(depart)) && (employees[i] != null)) {
                 sumDepartmentEconomic += employees[i].getSalary();
                 employeeDepartmentEconomic++;
             }
         }
-        return sumDepartmentEconomic / employeeDepartmentEconomic;
-    }
-
-    public static double sumDepartmentScientific() {
-        double sumDepartmentScientific = 0;
-        String depart = "scientific";
-        for (int i = 0; i < employees.length; i++) {
-            if (employees[i].getDepartment().equals(depart)) {
-                sumDepartmentScientific += employees[i].getSalary();
-            }
-        }
-        return sumDepartmentScientific;
+        return (Math.floor((sumDepartmentEconomic / employeeDepartmentEconomic)));
     }
 
 
