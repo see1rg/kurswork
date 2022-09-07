@@ -26,7 +26,6 @@ public class Main {
             }
         }
 
-
         System.out.println("Сумму затрат на зарплату по отделу \"Экономика\": " + sumDepartmentEconomic());
 
         System.out.println("Среднее значение зарплат по отделу \"Экономика\":" + averageDepartmentEconomic());
