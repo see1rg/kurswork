@@ -3,7 +3,7 @@ public class Employee {
     private String fio;
     private String department;
     private double salary;
-    public static int count=0;
+    public int count=0;
 
 
     @Override

@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
 
 
-        employees[0] = new Employee("Плотникова Александра Георгиевна", "scientific", 57000 );
+        employees[0] = new Employee("Плотникова Александра Георгиевна", "scientific", 57000);
         employees[1] = new Employee("Минина Аглая Ивановна", "economic", 65990);
         employees[2] = new Employee("Гордеев Лев Олегович", "scientific", 34200);
         employees[3] = new Employee("Фролов Петр Геннадьевич", "economic", 123440);
@@ -39,7 +39,7 @@ public class Main {
 
         int amountOfEmployees = 0;
         for (int i = 0; i < employees.length; i++) {
-            if(employees[i] != null){
+            if (employees[i] != null) {
                 amountOfEmployees++;
             }
 
@@ -59,8 +59,8 @@ public class Main {
         double getEmloyeesUnderSalary = 100_000;
         System.out.println("Список сотрудников с зарплатой меньше : " + getEmloyeesUnderSalary);
         for (int i = 0; i < employees.length; i++) {
-            if ((getEmloyeesUnderSalary > employees[i].getSalary()) && (employees[i] != null)){
-                System.out.println(employees[i].getFio() + " " + employees[i].getSalary()  +" id " + (i+1)); // id
+            if ((getEmloyeesUnderSalary > employees[i].getSalary()) && (employees[i] != null)) {
+                System.out.println(employees[i].getFio() + " " + employees[i].getSalary() + " id " + (i + 1)); // id
 
             }
         }
@@ -68,17 +68,13 @@ public class Main {
         double getEmloyeesSalaryHigher = 100_000;
         System.out.println("Список сотрудников с зарплатой меньше : " + getEmloyeesSalaryHigher);
         for (int i = 0; i < employees.length; i++) {
-            if ((getEmloyeesSalaryHigher < employees[i].getSalary()) && (employees[i] != null)){
-                System.out.println(employees[i].getFio() + " " + employees[i].getSalary() +" id " + (i+1)); // id
+            if ((getEmloyeesSalaryHigher < employees[i].getSalary()) && (employees[i] != null)) {
+                System.out.println(employees[i].getFio() + " " + employees[i].getSalary() + " id " + (i + 1)); // id
             }
         }
 
 
     }
-
-
-
-
 
 
     public static int numberOfEmployeeMin() {
