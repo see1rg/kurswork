@@ -15,10 +15,15 @@ public class Employee {
                 " id " + count;
     }
 
+
+
     public Employee(String fio, String department, double salary) {
+        //count++;
         this.fio = fio;
         this.salary = salary;
         this.department = department;
+
+
 
     }
 
