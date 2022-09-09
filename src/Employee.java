@@ -3,29 +3,33 @@ public class Employee {
     private String fio;
     private String department;
     private double salary;
-    public int count=0;
+    public static int count;
+
+    public int id;
+
+    public Employee(String fio, String department, double salary) {
+        id = count;
+        this.fio = fio;
+        this.salary = salary;
+        this.department = department;
+        count++;
+
+    }
+
+
+
+
+
 
 
     @Override
     public String toString() {
-        count++;
         return
                 "Ф.И.О. : " + fio +
-                ", зарплата :" + salary +
-                " id " + count;
+                        ", зарплата :" + salary +
+                        " id " + id;
     }
 
-
-
-    public Employee(String fio, String department, double salary) {
-        //count++;
-        this.fio = fio;
-        this.salary = salary;
-        this.department = department;
-
-
-
-    }
 
 
     public String getDepartment() {

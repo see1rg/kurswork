@@ -19,7 +19,6 @@ public class Main {
 
         System.out.println("Зарплата проиндексирована на: " + indexSalary(10) + "%.");
 
-
         System.out.println("Список сотрудников : ");
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] != null) {
@@ -29,13 +28,13 @@ public class Main {
 
         System.out.println("Сумму затрат на зарплату по отделу \"Экономика\": " + sumDepartmentEconomic());
 
-        System.out.println("Среднее значение зарплат по отделу \"Экономика\":" + averageDepartmentEconomic());
+        System.out.println("Среднее значение зарплат по отделу \"Экономика\": " + averageDepartmentEconomic());
 
         System.out.println("Сумму затрат на зарплату по отделу \"Наука\": " + sumDepartmentScientific());
 
-        System.out.println("Среднее значение зарплат по отделу \"Наука\":" + averageDepartmentScientific());
+        System.out.println("Среднее значение зарплат по отделу \"Наука\": " + averageDepartmentScientific());
 
-        System.out.println("Сумма затрат на зарплаты:" + salaryCalculate());
+        System.out.println("Сумма затрат на зарплаты: " + salaryCalculate());
 
         int amountOfEmployees = 0;
         for (int i = 0; i < employees.length; i++) {
@@ -45,7 +44,7 @@ public class Main {
 
         }
         double average = salaryCalculate() / amountOfEmployees;
-        System.out.println("Среднее значение зарплат:" + (float) average);
+        System.out.println("Среднее значение зарплат: " + (float) average);
 
 
         System.out.println("Минимальная зарплата: " + employees[numberOfEmployeeMin()].getSalary() +
@@ -60,16 +59,16 @@ public class Main {
         System.out.println("Список сотрудников с зарплатой меньше : " + getEmloyeesUnderSalary);
         for (int i = 0; i < employees.length; i++) {
             if ((getEmloyeesUnderSalary > employees[i].getSalary()) && (employees[i] != null)) {
-                System.out.println(employees[i].getFio() + " " + employees[i].getSalary() + " id " + (i + 1)); // id
+                System.out.println(employees[i].getFio() + " " + employees[i].getSalary() + " id" + employees[i].id); // id
 
             }
         }
 
         double getEmloyeesSalaryHigher = 100_000;
-        System.out.println("Список сотрудников с зарплатой меньше : " + getEmloyeesSalaryHigher);
+        System.out.println("Список сотрудников с зарплатой больше : " + getEmloyeesSalaryHigher);
         for (int i = 0; i < employees.length; i++) {
             if ((getEmloyeesSalaryHigher < employees[i].getSalary()) && (employees[i] != null)) {
-                System.out.println(employees[i].getFio() + " " + employees[i].getSalary() + " id " + (i + 1)); // id
+                System.out.println(employees[i].getFio() + " " + employees[i].getSalary() + " id" + employees[i].id); // id
             }
         }
 
