@@ -1,26 +1,17 @@
 public class Employee {
-
     private String fio;
     private String department;
     private double salary;
     public static int count;
-
     public int id;
 
     public Employee(String fio, String department, double salary) {
-        id = count;
+        id = count++;
         this.fio = fio;
         this.salary = salary;
         this.department = department;
-        count++;
 
     }
-
-
-
-
-
-
 
     @Override
     public String toString() {
@@ -30,8 +21,6 @@ public class Employee {
                         " id " + id;
     }
 
-
-
     public String getDepartment() {
         return department;
     }
@@ -40,7 +29,6 @@ public class Employee {
         this.department = department;
     }
 
-
     public String getFio() {
         return fio;
     }
@@ -48,8 +36,6 @@ public class Employee {
     public void setFio(String fio) {
         this.fio = fio;
     }
-
-
 
     public double getSalary() {
         return this.salary;
